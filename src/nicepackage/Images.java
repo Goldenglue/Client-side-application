@@ -3,6 +3,7 @@ package nicepackage;
 /**
  * Created by IvanOP on 25.03.2017.
  */
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
@@ -10,7 +11,6 @@ import java.nio.file.Path;
 import javax.imageio.ImageIO;
 
 /**
- *
  * @author IvanOP
  */
 public class Images extends GraphObject implements Serializable {
@@ -20,34 +20,33 @@ public class Images extends GraphObject implements Serializable {
 
     @Override
     public void paintComponent(Graphics g) {
-        g.drawImage(img,x - (objWidth/2), y - (objHeight/2),objWidth,objHeight, null);
+        g.drawImage(img, x - (objWidth / 2), y - (objHeight / 2), objWidth, objHeight, null);
     }
 
-    private void getAwayFromTheCenter(){
-        int randX =  -15 + (int)(Math.random()*30);
-        int randY =  -15 + (int)(Math.random()*30);
+    private void getAwayFromTheCenter() {
+        int randX = -15 + (int) (Math.random() * 30);
+        int randY = -15 + (int) (Math.random() * 30);
         this.x = x + randX;
         this.y = y + randY;
         this.spaceContainer.x = x + randX;
         this.spaceContainer.y = y + randY;
     }
 
-    private void backToTheCenter(){
+    private void backToTheCenter() {
         this.x = initialX;
         this.y = initialY;
         this.spaceContainer.x = initialX;
         this.spaceContainer.y = initialY;
     }
 
-    transient Runnable running = (Runnable & Serializable) () -> {
+    Runnable running = (Runnable & Serializable) () -> {
 
-        while(true) {
-
+        while (true) {
             try {
                 Thread.sleep(50);
 
                 synchronized (this) {
-                    while(threadSuspended) {
+                    while (threadSuspended) {
                         wait();
                     }
                 }
@@ -55,20 +54,18 @@ public class Images extends GraphObject implements Serializable {
                 e.printStackTrace();
             }
             getAwayFromTheCenter();
-
             try {
                 Thread.sleep(50);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             backToTheCenter();
-
         }
     };
 
     @Override
     public void startAnimation() {
-        System.out.println("a");
+        //System.out.println("a");
         animation = new Thread(running);
         animation.start();
     }
@@ -85,20 +82,19 @@ public class Images extends GraphObject implements Serializable {
     }
 
     public Images(int x, int y, String imgPath) {
-        super(x,y,x,y);
+        super(x, y, x, y);
 
         this.source = imgPath;
         try {
             this.img = ImageIO.read(new File(source));
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
         this.threadSuspended = false;
         this.objWidth = img.getWidth();
         this.objHeight = img.getHeight();
-        this.spaceContainer = new Rectangle(x - (objWidth/2), y - (objHeight/2), objWidth, objHeight);
+        this.spaceContainer = new Rectangle(x - (objWidth / 2), y - (objHeight / 2), objWidth, objHeight);
         this.isRunning = true;
         startAnimation();
     }
@@ -111,23 +107,22 @@ public class Images extends GraphObject implements Serializable {
         this.readAsTextFile(path);
         try {
             this.img = ImageIO.read(new File(source));
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         this.threadSuspended = false;
         this.objWidth = img.getWidth();
         this.objHeight = img.getHeight();
-        this.spaceContainer = new Rectangle(x - (objWidth/2), y - (objHeight/2), objWidth, objHeight);
+        this.spaceContainer = new Rectangle(x - (objWidth / 2), y - (objHeight / 2), objWidth, objHeight);
         this.isRunning = true;
         this.startAnimation();
     }
 
-    public void setImage(String source) {
+    @Override
+    public void setImage() {
         try {
             this.img = ImageIO.read(new File(source));
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -147,7 +142,7 @@ public class Images extends GraphObject implements Serializable {
 
     public void saveAsBinaryFile(Path path) throws IOException {
         File filewrite = new File(path.toString());
-        try (BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(filewrite,true)))) {
+        try (BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(filewrite, true)))) {
             writer.write(this.getClass().getName() + "\n");
             writer.write(this.source + "\n");
             writer.write(this.x + "\n");

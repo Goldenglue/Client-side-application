@@ -56,7 +56,7 @@ class Board extends JPanel implements MouseListener, Serializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        fileDataSize = fileData.pathesToImages.size() - 1;
+        fileDataSize =  FileData.getPathsToImages().size() - 1;
         addMouseListener(this);
         boardThread = new Thread(running);
         boardThread.start();
@@ -91,8 +91,8 @@ class Board extends JPanel implements MouseListener, Serializable {
                 }
                 int min = 0;
                 int randomNumber = min + (int) (Math.random() * (fileDataSize));
-                graphObjectVector.add(new Images(me.getX(), me.getY(), fileData.pathesToImages.get(randomNumber)));
-                graphObjectVector.add(new Strings(me.getX(), me.getY(), fileData.namesOfImages.get(randomNumber)));
+                graphObjectVector.add(new Images(me.getX(), me.getY(), FileData.getPathsToImages().get(randomNumber)));
+                graphObjectVector.add(new Strings(me.getX(), me.getY(), FileData.getNamesOfImages().get(randomNumber)));
                 repaint();
                 break;
             }
@@ -282,6 +282,7 @@ class Board extends JPanel implements MouseListener, Serializable {
         try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(file))) {
             graphObjectVector = (Vector<GraphObject>) inputStream.readObject();
             for (GraphObject graphObject : graphObjectVector) {
+                graphObject.setImage();
                 graphObject.startAnimation();
             }
         }

@@ -13,14 +13,13 @@ import static java.lang.Thread.sleep;
 public class ClientSideConnection {
     Socket socket;
     InetAddress host;
-    int serverPort = 4020;
+    int serverPort = 4000;
     PrintWriter toServer;
     BufferedReader fromServer;
     boolean isConnected = false;
     private boolean isDisconnected = false;
     private Thread clientSideConnectionThread;
-    private String messageToServer = "";
-    private ClientServerExecutor clientServerExecutor;
+    private DatagramExecutor clientServerExecutor;
 
 
     private Runnable runClientSideConnection = () -> {
@@ -32,15 +31,14 @@ public class ClientSideConnection {
                         wait();
                     }
                 }
-                clientServerExecutor.executeMessageFromClient(messageToServer);
-                messageToServer = "";
+                clientServerExecutor.executeMessageFromClient(getMessage());
                 while (isConnected) {
                     String line = fromServer.readLine();
                     if (!line.equals("")) {
                         System.out.println("Client received " + line);
                     }
                     clientServerExecutor.executeMessageFromClient(line);
-                    clientServerExecutor.executeMessageFromClient(messageToServer);
+                    clientServerExecutor.executeMessageFromClient(getMessage());
                     toServer.println("");
                     toServer.flush();
                     sleep(50);
@@ -52,16 +50,13 @@ public class ClientSideConnection {
     };
 
     ClientSideConnection(Board board) {
-        clientServerExecutor = new ClientServerExecutor(this, board);
+        clientServerExecutor = new DatagramExecutor(this, board);
         startThread();
 
     }
 
-    synchronized void setToServer(String toServer) {
-        this.messageToServer = toServer;
-        if (messageToServer.equals("-ct") && isDisconnected) {
-            resumeThread();
-        }
+    private String getMessage() {
+        return GUIHolder.getToServer();
     }
 
     private void startThread() {

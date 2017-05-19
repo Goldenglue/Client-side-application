@@ -161,7 +161,7 @@ public class ClientServerExecutor {
         for (int i = 0; i < jsonArray.size(); i++) {
             System.out.println(jsonArray);
             Images image = gson.fromJson(jsonArray.get(i), Images.class);
-            image.setImage(image.source);
+            image.setImage();
             board.graphObjectVector.add(image);
             i++;
             Strings strings = gson.fromJson(jsonArray.get(i), Strings.class);
@@ -220,7 +220,7 @@ public class ClientServerExecutor {
             System.out.println(object);
             if (type.equals("Images")) {
                 Images images = gson.fromJson(object, Images.class);
-                images.setImage(images.source);
+                images.setImage();
                 board.graphObjectVector.add(images);
             } else if (type.equals("Strings")) {
                 Strings strings = gson.fromJson(object, Strings.class);

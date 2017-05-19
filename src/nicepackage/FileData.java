@@ -18,15 +18,15 @@ import java.util.stream.Stream;
 public class FileData {
     Path dir;
     Stream<Path> heh = null;
-    List<String> pathesToImages;
-    List<String> namesOfImages = new ArrayList<String>();
+    private static List<String> pathsToImages;
+    private static List<String> namesOfImages = new ArrayList<>();
     File[] files;
 
     //TODO filter automatically, but should learn about Stream more
-    public FileData() throws IOException {
-        this.dir = Paths.get("twitch chat");
-        this.heh = Files.list(dir);
-        this.pathesToImages = heh.map(Path::toString).collect(Collectors.toList());
+    FileData() throws IOException {
+        dir = Paths.get("twitch chat");
+        heh = Files.list(dir);
+        pathsToImages = heh.map(Path::toString).collect(Collectors.toList());
 
 
         this.files = new File("twitch chat").listFiles();
@@ -35,7 +35,7 @@ public class FileData {
                 namesOfImages.add(file.getName().split("\\.")[0]);
             }
         }
-        Iterator<String> iterator = pathesToImages.iterator();
+        Iterator<String> iterator = pathsToImages.iterator();
         while (iterator.hasNext()) {
             if (iterator.next().contains("Thumbs")) {
                 iterator.remove();
@@ -47,6 +47,14 @@ public class FileData {
                 iterator.remove();
             }
         }
+    }
+
+    static List<String> getPathsToImages() {
+        return pathsToImages;
+    }
+
+    static List<String> getNamesOfImages() {
+        return namesOfImages;
     }
 }
 

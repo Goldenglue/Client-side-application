@@ -12,7 +12,7 @@ public class GUIHolder extends JPanel {
     private JButton jButton;
     private JTextField jTextField;
     private Board board;
-    private String toServer = "";
+    private static String toServer = "";
 
     public Dimension getPreferredSize() {
         return new Dimension(200, 500);
@@ -92,7 +92,7 @@ public class GUIHolder extends JPanel {
         add(jTextField);
     }
 
-    String getToServer() {
+    static String getToServer() {
         String temp = toServer;
         toServer = "";
         return temp;

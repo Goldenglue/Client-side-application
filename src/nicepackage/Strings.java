@@ -50,7 +50,6 @@ public class Strings extends GraphObject implements Serializable {
 
             try {
                 Thread.sleep(50);
-
                 synchronized (this) {
                     while (threadSuspended) {
                         wait();
@@ -60,14 +59,13 @@ public class Strings extends GraphObject implements Serializable {
                 e.printStackTrace();
             }
             circularMotion();
-
         }
     };
 
 
     @Override
     public void startAnimation() {
-        System.out.println("asdf");
+        //System.out.println("asdf");
         animation = new Thread(running);
         animation.start();
     }
@@ -92,7 +90,7 @@ public class Strings extends GraphObject implements Serializable {
         this.threadSuspended = false;
         this.isRunning = true;
         this.spaceContainer = new Rectangle(x - objWidth / 2, y + objHeight / 2, objWidth, objHeight);
-        //this.startAnimation();
+        this.startAnimation();
 
     }
 

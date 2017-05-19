@@ -25,9 +25,7 @@ abstract class GraphObject implements Serializable {
     boolean isRunning;
     boolean threadSuspended;
 
-    GraphObject() {
-        System.out.println("add");
-    }
+    GraphObject() {}
 
     GraphObject(int x, int y, int initialX, int initialY) {
         this.x = x;
@@ -53,5 +51,7 @@ abstract class GraphObject implements Serializable {
     public void readAsTextFile(Path path) throws IOException {}
 
     public void readAsBinaryFile(Path path) throws IOException {}
+
+    public void setImage() {}
 
 }
