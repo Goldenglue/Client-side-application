@@ -46,7 +46,6 @@ public class ClientServerExecutor {
             this::getObject
     };
 
-
     ClientServerExecutor(ClientSideConnection clientSideConnection, Board board) {
         this.board = board;
         this.connection = clientSideConnection;

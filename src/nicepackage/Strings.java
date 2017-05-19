@@ -45,7 +45,7 @@ public class Strings extends GraphObject implements Serializable {
     }
 
 
-    transient Runnable running = (Runnable & Serializable) () -> {
+    Runnable running = (Runnable & Serializable) () -> {
         while (true) {
 
             try {
@@ -67,6 +67,7 @@ public class Strings extends GraphObject implements Serializable {
 
     @Override
     public void startAnimation() {
+        System.out.println("asdf");
         animation = new Thread(running);
         animation.start();
     }
@@ -91,12 +92,12 @@ public class Strings extends GraphObject implements Serializable {
         this.threadSuspended = false;
         this.isRunning = true;
         this.spaceContainer = new Rectangle(x - objWidth / 2, y + objHeight / 2, objWidth, objHeight);
-        this.startAnimation();
+        //this.startAnimation();
 
     }
 
     public Strings() {
-        this.startAnimation();
+
     }
 
     public Strings(Path path) throws IOException {

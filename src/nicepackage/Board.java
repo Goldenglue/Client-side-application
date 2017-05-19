@@ -275,12 +275,15 @@ class Board extends JPanel implements MouseListener, Serializable {
         }
     }
 
-    public void javaDesrialization() throws IOException, ClassNotFoundException {
+    public void javaDeserialization() throws IOException, ClassNotFoundException {
         Path path = Paths.get("javaSerialization.out");
         File file = new File(path.toString());
 
         try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(file))) {
             graphObjectVector = (Vector<GraphObject>) inputStream.readObject();
+            for (GraphObject graphObject : graphObjectVector) {
+                graphObject.startAnimation();
+            }
         }
     }
 

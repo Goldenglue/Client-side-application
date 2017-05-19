@@ -68,6 +68,7 @@ public class Images extends GraphObject implements Serializable {
 
     @Override
     public void startAnimation() {
+        System.out.println("a");
         animation = new Thread(running);
         animation.start();
     }

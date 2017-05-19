@@ -61,6 +61,24 @@ public class GUIHolder extends JPanel {
             }
         });
         add(jButton);
+        jButton =  new JButton("serialize");
+        jButton.addActionListener(actionEvent -> {
+            try {
+                board.javaSerialization();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        add(jButton);
+        jButton = new JButton("deserialize");
+        jButton.addActionListener(actionEvent -> {
+            try {
+                board.javaDeserialization();
+            } catch (IOException | ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        });
+        add(jButton);
         jButton = new JButton("Pause or continue movement");
         jButton.addActionListener(actionEvent -> {
             board.pauseOrContinueMovement();

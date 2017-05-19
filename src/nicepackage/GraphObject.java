@@ -21,11 +21,12 @@ abstract class GraphObject implements Serializable {
     int initialX;
     int initialY;
     Rectangle spaceContainer;
-    transient Thread animation;
+    transient static Thread animation;
     boolean isRunning;
     boolean threadSuspended;
 
     GraphObject() {
+        System.out.println("add");
     }
 
     GraphObject(int x, int y, int initialX, int initialY) {
@@ -34,29 +35,23 @@ abstract class GraphObject implements Serializable {
         this.initialX = initialX;
         this.initialY = initialY;
 
+
     }
 
-    public synchronized void stopThread() {
-    }
+    public synchronized void stopThread() {}
 
-    public synchronized void notifyThread() {
-    }
+    public synchronized void notifyThread() {}
 
-    public void startAnimation() {
-    }
+    public void startAnimation() {}
 
     public abstract void paintComponent(Graphics g);
 
-    public void saveAsTextFile(Path path) throws IOException {
-    }
+    public void saveAsTextFile(Path path) throws IOException {}
 
-    public void saveAsBinaryFile(Path path) throws IOException {
-    }
+    public void saveAsBinaryFile(Path path) throws IOException {}
 
-    public void readAsTextFile(Path path) throws IOException {
-    }
+    public void readAsTextFile(Path path) throws IOException {}
 
-    public void readAsBinaryFile(Path path) throws IOException {
-    }
+    public void readAsBinaryFile(Path path) throws IOException {}
 
 }

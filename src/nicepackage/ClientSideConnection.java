@@ -17,9 +17,9 @@ public class ClientSideConnection {
     PrintWriter toServer;
     BufferedReader fromServer;
     boolean isConnected = false;
-    boolean isDisconnected = false;
+    private boolean isDisconnected = false;
     private Thread clientSideConnectionThread;
-    String messageToServer = "";
+    private String messageToServer = "";
     private ClientServerExecutor clientServerExecutor;
 
 
