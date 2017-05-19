@@ -20,6 +20,6 @@ public class TwitchEmotes extends JPanel {
         TwitchEmotes twitchEmotes = new TwitchEmotes();
         FrameHolder frameHolder = new FrameHolder();
         //ClientSideConnection connection = new ClientSideConnection(frameHolder.board);
-        DatagramConnection datagramConnection =  new DatagramConnection();
+        DatagramConnection datagramConnection =  new DatagramConnection(frameHolder.board);
     }
 }

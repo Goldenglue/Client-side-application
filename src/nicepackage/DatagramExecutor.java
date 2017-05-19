@@ -4,12 +4,6 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonParser;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.net.InetAddress;
-import java.net.Socket;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,7 +15,6 @@ import java.util.Map;
 public class DatagramExecutor {
     private Map<String, Call> stringMethodMap;
     private String[] possibleCommands;
-    private ClientSideConnection connection;
     private Board board;
     private String message;
 
@@ -33,8 +26,6 @@ public class DatagramExecutor {
      * Store every method that executes given command
      */
     private Call[] calls = new Call[]{
-            this::connect,
-            this::disconnect,
             this::sendSerializedObject,
             this::receiveSerializedObject,
             this::clearVectorOnServer,
@@ -46,9 +37,8 @@ public class DatagramExecutor {
             this::getObject
     };
 
-    DatagramExecutor(ClientSideConnection clientSideConnection, Board board) {
+    DatagramExecutor(Board board) {
         this.board = board;
-        this.connection = clientSideConnection;
         try {
             setStringMethodMap();
         } catch (NoSuchMethodException e) {
@@ -77,7 +67,7 @@ public class DatagramExecutor {
      * @throws NoSuchMethodException
      */
     private void setStringMethodMap() throws NoSuchMethodException {
-        possibleCommands = new String[]{"-ct", "-dc", "-sobjc", "-sobjs", "-clrc", "-clrs", "-vecsc", "-vecss", "-gobjc"
+        possibleCommands = new String[]{"-sobjc", "-sobjs", "-clrc", "-clrs", "-vecsc", "-vecss", "-gobjc"
                 , "-gobjs", "-robj"};
         stringMethodMap = new HashMap<>();
         for (int i = 0; i < possibleCommands.length; i++) {
@@ -98,64 +88,18 @@ public class DatagramExecutor {
         }
     }
 
-    private void connect() {
-
-        try {
-            System.out.println("Connecting to server on port " + connection.serverPort);
-            connection.isConnected = true;
-            connection.host = InetAddress.getByName("localhost");
-            connection.socket = new Socket(connection.host, connection.serverPort);
-            connection.toServer =
-                    new PrintWriter(connection.socket.getOutputStream(), true);
-            connection.fromServer =
-                    new BufferedReader(
-                            new InputStreamReader(connection.socket.getInputStream()));
-            System.out.println("Just connected to " + connection.socket.getRemoteSocketAddress());
-
-            connection.toServer.println("Hello from " + connection.socket.getLocalSocketAddress());
-            connection.toServer.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    private void disconnect() {
-        System.out.println("Disconnecting");
-        try {
-            connection.toServer.println("-dc");
-            connection.toServer.flush();
-            connection.toServer.close();
-            connection.stopThread();
-            connection.isConnected = false;
-        } finally {
-            try {
-                connection.socket.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
     private void sendSerializedObject() {
         Gson gson = new Gson();
         String string = gson.toJson(board.graphObjectVector);
-        connection.toServer.println(message);
-        connection.toServer.flush();
-        connection.toServer.println(string);
-        connection.toServer.flush();
+        DatagramConnection.sendPacketOfData(message);
+        DatagramConnection.sendPacketOfData(string);
     }
 
     //for some reason that i haven't figured out yet every field of object that get created from json
     // is null in constructor. So i can't load image directly from there so setImage function must exist for now
     private void receiveSerializedObject() {
         Gson gson = new Gson();
-        String string = "";
-        try {
-            string = connection.fromServer.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        String string = DatagramConnection.receivePacketOfData();
         JsonParser jsonParser = new JsonParser();
         JsonArray jsonArray = jsonParser.parse(string).getAsJsonArray();
         for (int i = 0; i < jsonArray.size(); i++) {
@@ -170,8 +114,7 @@ public class DatagramExecutor {
     }
 
     private void clearVectorOnServer() {
-        connection.toServer.println(message);
-        connection.toServer.flush();
+        DatagramConnection.sendPacketOfData(message);
     }
 
     private void clearVectorOnClient() {
@@ -180,54 +123,42 @@ public class DatagramExecutor {
     }
 
     private void sizeOnServer() {
-        connection.toServer.println(message);
-        connection.toServer.flush();
-        try {
-            System.out.println("size on server: " + connection.fromServer.readLine());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        DatagramConnection.sendPacketOfData(message);
+        String size = DatagramConnection.receivePacketOfData();
+        System.out.println("size on server: " + size);
     }
 
     private void sizeOnClient() {
-        connection.toServer.println(board.graphObjectVector.size());
-        connection.toServer.flush();
+        DatagramConnection.sendPacketOfData(String.valueOf(board.graphObjectVector.size()));
     }
 
     private void requestObject() {
-        connection.toServer.println(message);
-        connection.toServer.flush();
+        DatagramConnection.sendPacketOfData(message);
     }
 
     private void sendObject() {
         message = message.replaceAll("[^0-9]", "");
         Gson gson = new Gson();
         String object = gson.toJson(board.graphObjectVector.get(Integer.valueOf(message)));
-        connection.toServer.println("-robj");
-        connection.toServer.flush();
-        connection.toServer.println(object);
-        connection.toServer.flush();
+        DatagramConnection.sendPacketOfData("-robj");
+        DatagramConnection.sendPacketOfData(object);
     }
 
     //for some reason that i haven't figured out yet every field of object that get created from json
     // is null in constructor. So i can't load image directly from there so setImage function must exist for now
     private void getObject() {
         Gson gson = new Gson();
-        try {
-            String type = connection.fromServer.readLine();
-            System.out.println(type);
-            String object = connection.fromServer.readLine();
-            System.out.println(object);
-            if (type.equals("Images")) {
-                Images images = gson.fromJson(object, Images.class);
-                images.setImage();
-                board.graphObjectVector.add(images);
-            } else if (type.equals("Strings")) {
-                Strings strings = gson.fromJson(object, Strings.class);
-                board.graphObjectVector.add(strings);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+        String type = DatagramConnection.receivePacketOfData();
+        System.out.println(type);
+        String object = DatagramConnection.receivePacketOfData();
+        System.out.println(object);
+        if (type.equals("Images")) {
+            Images images = gson.fromJson(object, Images.class);
+            images.setImage();
+            board.graphObjectVector.add(images);
+        } else if (type.equals("Strings")) {
+            Strings strings = gson.fromJson(object, Strings.class);
+            board.graphObjectVector.add(strings);
         }
     }
 

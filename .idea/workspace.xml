@@ -7,27 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20dfa6ea-c1c1-4411-8cee-7c2f9c9b5d6f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/nicepackage/DatagramConnection.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/popitkaDVA/nicepackage/FileWork.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/nicepackage/FileWork.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/popitkaDVA/nicepackage/Board.class" afterPath="$PROJECT_DIR$/out/production/popitkaDVA/nicepackage/Board.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/popitkaDVA/nicepackage/ClientServerExecutor.class" afterPath="$PROJECT_DIR$/out/production/popitkaDVA/nicepackage/ClientServerExecutor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/popitkaDVA/nicepackage/ClientSideConnection.class" afterPath="$PROJECT_DIR$/out/production/popitkaDVA/nicepackage/ClientSideConnection.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/popitkaDVA/nicepackage/FileData.class" afterPath="$PROJECT_DIR$/out/production/popitkaDVA/nicepackage/FileData.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/popitkaDVA/nicepackage/GUIHolder.class" afterPath="$PROJECT_DIR$/out/production/popitkaDVA/nicepackage/GUIHolder.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/popitkaDVA/nicepackage/GraphObject.class" afterPath="$PROJECT_DIR$/out/production/popitkaDVA/nicepackage/GraphObject.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/popitkaDVA/nicepackage/Images.class" afterPath="$PROJECT_DIR$/out/production/popitkaDVA/nicepackage/Images.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/popitkaDVA/nicepackage/Strings.class" afterPath="$PROJECT_DIR$/out/production/popitkaDVA/nicepackage/Strings.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/popitkaDVA/nicepackage/TwitchEmotes.class" afterPath="$PROJECT_DIR$/out/production/popitkaDVA/nicepackage/TwitchEmotes.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javaSerialization.out" afterPath="$PROJECT_DIR$/javaSerialization.out" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/nicepackage/Board.java" afterPath="$PROJECT_DIR$/src/nicepackage/Board.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/nicepackage/ClientServerExecutor.java" afterPath="$PROJECT_DIR$/src/nicepackage/ClientServerExecutor.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/nicepackage/ClientSideConnection.java" afterPath="$PROJECT_DIR$/src/nicepackage/ClientSideConnection.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/nicepackage/DatagramConnection.java" afterPath="$PROJECT_DIR$/src/nicepackage/DatagramConnection.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/nicepackage/DatagramExecutor.java" afterPath="$PROJECT_DIR$/src/nicepackage/DatagramExecutor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/nicepackage/FileData.java" afterPath="$PROJECT_DIR$/src/nicepackage/FileData.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/nicepackage/GUIHolder.java" afterPath="$PROJECT_DIR$/src/nicepackage/GUIHolder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/nicepackage/GraphObject.java" afterPath="$PROJECT_DIR$/src/nicepackage/GraphObject.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/nicepackage/Images.java" afterPath="$PROJECT_DIR$/src/nicepackage/Images.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/nicepackage/Strings.java" afterPath="$PROJECT_DIR$/src/nicepackage/Strings.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/nicepackage/TwitchEmotes.java" afterPath="$PROJECT_DIR$/src/nicepackage/TwitchEmotes.java" />
@@ -49,13 +33,13 @@
       <file leaf-file-name="ClientSideConnection.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/nicepackage/ClientSideConnection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="14" column="21" lean-forward="true" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+            <state relative-caret-position="523">
+              <caret line="58" column="20" lean-forward="false" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
               <folding>
-                <element signature="e#1700#1701#0" expanded="true" />
-                <element signature="e#1746#1747#0" expanded="true" />
-                <element signature="e#1952#1953#0" expanded="true" />
-                <element signature="e#1994#1995#0" expanded="true" />
+                <element signature="e#1706#1707#0" expanded="true" />
+                <element signature="e#1733#1734#0" expanded="true" />
+                <element signature="e#1939#1940#0" expanded="true" />
+                <element signature="e#1981#1982#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -64,8 +48,8 @@
       <file leaf-file-name="TwitchEmotes.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/nicepackage/TwitchEmotes.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="22" column="74" lean-forward="false" selection-start-line="22" selection-start-column="74" selection-end-line="22" selection-end-column="74" />
+            <state relative-caret-position="255">
+              <caret line="20" column="52" lean-forward="true" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -81,46 +65,43 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClientServerExecutor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/nicepackage/ClientServerExecutor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="34" column="38" lean-forward="true" selection-start-line="34" selection-start-column="38" selection-end-line="34" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="GUIHolder.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/nicepackage/GUIHolder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-              <folding>
-                <element signature="method#createAndShowGUI#0;class#GUIHolder#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="434">
+              <caret line="93" column="5" lean-forward="false" selection-start-line="93" selection-start-column="5" selection-end-line="93" selection-end-column="5" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DatagramConnection.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DatagramConnection.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/nicepackage/DatagramConnection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="574">
-              <caret line="89" column="66" lean-forward="true" selection-start-line="89" selection-start-column="66" selection-end-line="89" selection-end-column="66" />
+            <state relative-caret-position="230">
+              <caret line="91" column="0" lean-forward="false" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#3554#3555#0" expanded="true" />
+                <element signature="e#3618#3619#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DatagramExecutor.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DatagramExecutor.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/nicepackage/DatagramExecutor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="18" column="35" lean-forward="true" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
-              <folding />
+            <state relative-caret-position="195">
+              <caret line="126" column="0" lean-forward="false" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
+              <folding>
+                <element signature="e#4256#4257#0" expanded="true" />
+                <element signature="e#4316#4317#0" expanded="true" />
+                <element signature="e#4712#4713#0" expanded="true" />
+                <element signature="e#4811#4812#0" expanded="true" />
+                <element signature="e#4847#4848#0" expanded="true" />
+                <element signature="e#4907#4908#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -128,14 +109,14 @@
       <file leaf-file-name="Images.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/nicepackage/Images.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="98" column="25" lean-forward="true" selection-start-line="98" selection-start-column="25" selection-end-line="98" selection-end-column="25" />
+            <state relative-caret-position="345">
+              <caret line="41" column="14" lean-forward="false" selection-start-line="41" selection-start-column="14" selection-end-line="41" selection-end-column="14" />
               <folding>
                 <element signature="method#getAwayFromTheCenter#0;class#Images#0" expanded="false" />
                 <element signature="method#backToTheCenter#0;class#Images#0" expanded="false" />
-                <element signature="e#1043#1614#0" expanded="false" />
-                <element signature="e#2568#2569#0" expanded="true" />
-                <element signature="e#2605#2606#0" expanded="true" />
+                <element signature="e#1053#1624#0" expanded="false" />
+                <element signature="e#2578#2579#0" expanded="true" />
+                <element signature="e#2615#2616#0" expanded="true" />
                 <element signature="method#saveAsTextFile#0;class#Images#0" expanded="false" />
                 <element signature="method#saveAsBinaryFile#0;class#Images#0" expanded="false" />
                 <element signature="method#readAsTextFile#0;class#Images#0" expanded="false" />
@@ -148,8 +129,8 @@
       <file leaf-file-name="Strings.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/nicepackage/Strings.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="32">
-              <caret line="70" column="5" lean-forward="true" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
+            <state relative-caret-position="629">
+              <caret line="43" column="9" lean-forward="true" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
               <folding>
                 <element signature="method#saveAsTextFile#0;class#Strings#0" expanded="false" />
                 <element signature="method#readAsTextFile#0;class#Strings#0" expanded="false" />
@@ -163,8 +144,8 @@
       <file leaf-file-name="GraphObject.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/nicepackage/GraphObject.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
-              <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+            <state relative-caret-position="-42">
+              <caret line="25" column="28" lean-forward="true" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -204,17 +185,17 @@
         <option value="$PROJECT_DIR$/src/nicepackage/ClientServerMethods.java" />
         <option value="$PROJECT_DIR$/src/nicepackage/Web.java" />
         <option value="$PROJECT_DIR$/src/nicepackage/FrameHolder.java" />
-        <option value="$PROJECT_DIR$/src/nicepackage/GUIHolder.java" />
-        <option value="$PROJECT_DIR$/src/nicepackage/Strings.java" />
         <option value="$PROJECT_DIR$/src/nicepackage/ClientServerExecutor.java" />
-        <option value="$PROJECT_DIR$/src/nicepackage/DatagramExecutor.java" />
-        <option value="$PROJECT_DIR$/src/nicepackage/Images.java" />
         <option value="$PROJECT_DIR$/src/nicepackage/FileData.java" />
         <option value="$PROJECT_DIR$/src/nicepackage/Board.java" />
         <option value="$PROJECT_DIR$/src/nicepackage/GraphObject.java" />
         <option value="$PROJECT_DIR$/src/nicepackage/TwitchEmotes.java" />
+        <option value="$PROJECT_DIR$/src/nicepackage/GUIHolder.java" />
         <option value="$PROJECT_DIR$/src/nicepackage/ClientSideConnection.java" />
+        <option value="$PROJECT_DIR$/src/nicepackage/Images.java" />
+        <option value="$PROJECT_DIR$/src/nicepackage/Strings.java" />
         <option value="$PROJECT_DIR$/src/nicepackage/DatagramConnection.java" />
+        <option value="$PROJECT_DIR$/src/nicepackage/DatagramExecutor.java" />
       </list>
     </option>
   </component>
@@ -637,6 +618,14 @@
       <option name="presentableId" value="Default" />
       <updated>1490439578133</updated>
     </task>
+    <task id="LOCAL-00001" summary="Able to send messages but unable to receive them">
+      <created>1495201430597</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1495201430597</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView">
@@ -661,7 +650,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28874025" sideWeight="0.510661" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28874025" sideWeight="0.48933902" order="4" side_tool="false" content_ui="tabs" x="19" y="714" width="1870" height="271" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28874025" sideWeight="0.48933902" order="4" side_tool="false" content_ui="tabs" x="19" y="714" width="1870" height="271" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -717,6 +706,10 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Able to send messages but unable to receive them" />
+    <option name="LAST_COMMIT_MESSAGE" value="Able to send messages but unable to receive them" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints-dialog>
@@ -740,14 +733,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/nicepackage/GraphObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="3" lean-forward="false" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/nicepackage/Images.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -755,9 +740,9 @@
           <folding>
             <element signature="method#getAwayFromTheCenter#0;class#Images#0" expanded="false" />
             <element signature="method#backToTheCenter#0;class#Images#0" expanded="false" />
-            <element signature="e#1043#1614#0" expanded="false" />
-            <element signature="e#2568#2569#0" expanded="true" />
-            <element signature="e#2605#2606#0" expanded="true" />
+            <element signature="e#1053#1624#0" expanded="false" />
+            <element signature="e#2578#2579#0" expanded="true" />
+            <element signature="e#2615#2616#0" expanded="true" />
             <element signature="method#saveAsTextFile#0;class#Images#0" expanded="false" />
             <element signature="method#saveAsBinaryFile#0;class#Images#0" expanded="false" />
             <element signature="method#readAsTextFile#0;class#Images#0" expanded="false" />
@@ -842,9 +827,9 @@
           <folding>
             <element signature="method#getAwayFromTheCenter#0;class#Images#0" expanded="false" />
             <element signature="method#backToTheCenter#0;class#Images#0" expanded="false" />
-            <element signature="e#1043#1614#0" expanded="false" />
-            <element signature="e#2568#2569#0" expanded="true" />
-            <element signature="e#2605#2606#0" expanded="true" />
+            <element signature="e#1053#1624#0" expanded="false" />
+            <element signature="e#2578#2579#0" expanded="true" />
+            <element signature="e#2615#2616#0" expanded="true" />
             <element signature="method#saveAsTextFile#0;class#Images#0" expanded="false" />
             <element signature="method#saveAsBinaryFile#0;class#Images#0" expanded="false" />
             <element signature="method#readAsTextFile#0;class#Images#0" expanded="false" />
@@ -895,9 +880,9 @@
           <folding>
             <element signature="method#getAwayFromTheCenter#0;class#Images#0" expanded="false" />
             <element signature="method#backToTheCenter#0;class#Images#0" expanded="false" />
-            <element signature="e#1043#1614#0" expanded="false" />
-            <element signature="e#2568#2569#0" expanded="true" />
-            <element signature="e#2605#2606#0" expanded="true" />
+            <element signature="e#1053#1624#0" expanded="false" />
+            <element signature="e#2578#2579#0" expanded="true" />
+            <element signature="e#2615#2616#0" expanded="true" />
             <element signature="method#saveAsTextFile#0;class#Images#0" expanded="false" />
             <element signature="method#saveAsBinaryFile#0;class#Images#0" expanded="false" />
             <element signature="method#readAsTextFile#0;class#Images#0" expanded="false" />
@@ -974,9 +959,9 @@
           <folding>
             <element signature="method#getAwayFromTheCenter#0;class#Images#0" expanded="false" />
             <element signature="method#backToTheCenter#0;class#Images#0" expanded="false" />
-            <element signature="e#1043#1614#0" expanded="false" />
-            <element signature="e#2568#2569#0" expanded="true" />
-            <element signature="e#2605#2606#0" expanded="true" />
+            <element signature="e#1053#1624#0" expanded="false" />
+            <element signature="e#2578#2579#0" expanded="true" />
+            <element signature="e#2615#2616#0" expanded="true" />
             <element signature="method#saveAsTextFile#0;class#Images#0" expanded="false" />
             <element signature="method#saveAsBinaryFile#0;class#Images#0" expanded="false" />
             <element signature="method#readAsTextFile#0;class#Images#0" expanded="false" />
@@ -1008,9 +993,9 @@
           <folding>
             <element signature="method#getAwayFromTheCenter#0;class#Images#0" expanded="false" />
             <element signature="method#backToTheCenter#0;class#Images#0" expanded="false" />
-            <element signature="e#1043#1614#0" expanded="false" />
-            <element signature="e#2568#2569#0" expanded="true" />
-            <element signature="e#2605#2606#0" expanded="true" />
+            <element signature="e#1053#1624#0" expanded="false" />
+            <element signature="e#2578#2579#0" expanded="true" />
+            <element signature="e#2615#2616#0" expanded="true" />
             <element signature="method#saveAsTextFile#0;class#Images#0" expanded="false" />
             <element signature="method#saveAsBinaryFile#0;class#Images#0" expanded="false" />
             <element signature="method#readAsTextFile#0;class#Images#0" expanded="false" />
@@ -1166,28 +1151,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/nicepackage/Images.java">
+    <entry file="file://$PROJECT_DIR$/src/nicepackage/FrameHolder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="98" column="25" lean-forward="true" selection-start-line="98" selection-start-column="25" selection-end-line="98" selection-end-column="25" />
+        <state relative-caret-position="170">
+          <caret line="11" column="19" lean-forward="false" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/nicepackage/TwitchEmotes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="20" column="52" lean-forward="true" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/nicepackage/ClientServerExecutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-969">
+          <caret line="56" column="5" lean-forward="true" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/nicepackage/ClientSideConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="523">
+          <caret line="58" column="20" lean-forward="false" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
           <folding>
-            <element signature="method#getAwayFromTheCenter#0;class#Images#0" expanded="false" />
-            <element signature="method#backToTheCenter#0;class#Images#0" expanded="false" />
-            <element signature="e#1043#1614#0" expanded="false" />
-            <element signature="e#2568#2569#0" expanded="true" />
-            <element signature="e#2605#2606#0" expanded="true" />
-            <element signature="method#saveAsTextFile#0;class#Images#0" expanded="false" />
-            <element signature="method#saveAsBinaryFile#0;class#Images#0" expanded="false" />
-            <element signature="method#readAsTextFile#0;class#Images#0" expanded="false" />
-            <element signature="method#readAsBinaryFile#0;class#Images#0" expanded="false" />
+            <element signature="e#1706#1707#0" expanded="true" />
+            <element signature="e#1733#1734#0" expanded="true" />
+            <element signature="e#1939#1940#0" expanded="true" />
+            <element signature="e#1981#1982#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/gson-2.8.0.jar!/com/google/gson/stream/JsonWriter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="323" column="0" lean-forward="false" selection-start-line="323" selection-start-column="0" selection-end-line="323" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/nicepackage/Strings.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="70" column="5" lean-forward="true" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
+        <state relative-caret-position="629">
+          <caret line="43" column="9" lean-forward="true" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
           <folding>
             <element signature="method#saveAsTextFile#0;class#Strings#0" expanded="false" />
             <element signature="method#readAsTextFile#0;class#Strings#0" expanded="false" />
@@ -1197,75 +1209,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/nicepackage/DatagramExecutor.java">
+    <entry file="file://$PROJECT_DIR$/src/nicepackage/Images.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="18" column="35" lean-forward="true" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
-          <folding />
+        <state relative-caret-position="345">
+          <caret line="41" column="14" lean-forward="false" selection-start-line="41" selection-start-column="14" selection-end-line="41" selection-end-column="14" />
+          <folding>
+            <element signature="method#getAwayFromTheCenter#0;class#Images#0" expanded="false" />
+            <element signature="method#backToTheCenter#0;class#Images#0" expanded="false" />
+            <element signature="e#1053#1624#0" expanded="false" />
+            <element signature="e#2578#2579#0" expanded="true" />
+            <element signature="e#2615#2616#0" expanded="true" />
+            <element signature="method#saveAsTextFile#0;class#Images#0" expanded="false" />
+            <element signature="method#saveAsBinaryFile#0;class#Images#0" expanded="false" />
+            <element signature="method#readAsTextFile#0;class#Images#0" expanded="false" />
+            <element signature="method#readAsBinaryFile#0;class#Images#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/nicepackage/GraphObject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/nicepackage/FrameHolder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="11" column="19" lean-forward="false" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/nicepackage/ClientSideConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="14" column="21" lean-forward="true" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
-          <folding>
-            <element signature="e#1700#1701#0" expanded="true" />
-            <element signature="e#1746#1747#0" expanded="true" />
-            <element signature="e#1952#1953#0" expanded="true" />
-            <element signature="e#1994#1995#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/nicepackage/ClientServerExecutor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="34" column="38" lean-forward="true" selection-start-line="34" selection-start-column="38" selection-end-line="34" selection-end-column="38" />
+        <state relative-caret-position="-42">
+          <caret line="25" column="28" lean-forward="true" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/nicepackage/GUIHolder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding>
-            <element signature="method#createAndShowGUI#0;class#GUIHolder#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/nicepackage/TwitchEmotes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="22" column="74" lean-forward="false" selection-start-line="22" selection-start-column="74" selection-end-line="22" selection-end-column="74" />
+        <state relative-caret-position="434">
+          <caret line="93" column="5" lean-forward="false" selection-start-line="93" selection-start-column="5" selection-end-line="93" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/nicepackage/DatagramConnection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="574">
-          <caret line="89" column="66" lean-forward="true" selection-start-line="89" selection-start-column="66" selection-end-line="89" selection-end-column="66" />
+        <state relative-caret-position="230">
+          <caret line="91" column="0" lean-forward="false" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3554#3555#0" expanded="true" />
+            <element signature="e#3618#3619#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/nicepackage/DatagramExecutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="126" column="0" lean-forward="false" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
+          <folding>
+            <element signature="e#4256#4257#0" expanded="true" />
+            <element signature="e#4316#4317#0" expanded="true" />
+            <element signature="e#4712#4713#0" expanded="true" />
+            <element signature="e#4811#4812#0" expanded="true" />
+            <element signature="e#4847#4848#0" expanded="true" />
+            <element signature="e#4907#4908#0" expanded="true" />
           </folding>
         </state>
       </provider>

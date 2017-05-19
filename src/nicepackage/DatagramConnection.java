@@ -9,6 +9,7 @@ import java.nio.ByteBuffer;
  * Created by IvanOP on 19.05.2017.
  */
 public class DatagramConnection {
+    static DatagramExecutor executor;
     private static DatagramSocket socketInput;
     private static DatagramSocket socketOutput;
     private static DatagramPacket packetOfDataSize;
@@ -24,20 +25,19 @@ public class DatagramConnection {
 
     private Runnable runConnection = () -> {
         while (isConnected) {
-
-            int size = receivePacketOfDataSize();
-            System.out.println(size);
-            String data = receivePacketOfData(size);
+            String data = receivePacketOfData();
             System.out.println(data);
+            executor.executeMessageFromClient(data);
             try {
-                Thread.sleep(1000);
+                Thread.sleep(10);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
     };
 
-    DatagramConnection() {
+    DatagramConnection(Board board) {
+         executor = new DatagramExecutor(board);
         try {
             address = InetAddress.getByName("localhost");
             socketInput = new DatagramSocket(inputPortNumber,address);
@@ -46,14 +46,14 @@ public class DatagramConnection {
         } catch (SocketException | UnknownHostException e) {
             e.printStackTrace();
         }
-        sendPacketOfDataSize("privet");
-        sendPacketOfData("privet");
+        String onConnection = "New client has arrived!";
+        sendPacketOfData(onConnection);
 
         runConnectionThread = new Thread(runConnection);
         runConnectionThread.start();
     }
 
-    static void sendPacketOfDataSize(String data) {
+    private static void sendPacketOfDataSize(String data) {
         int size = data.length();
         bufferForDataSize = ByteBuffer.allocate(4).putInt(size).array();
         packetOfDataSize = new DatagramPacket(bufferForDataSize, bufferForDataSize.length, address, outputPortNumber);
@@ -65,6 +65,8 @@ public class DatagramConnection {
     }
 
     static void sendPacketOfData(String data) {
+        sendPacketOfDataSize(data);
+        System.out.println("sending: " + data);
         bufferForData = data.getBytes();
         packetOfData = new DatagramPacket(bufferForData, bufferForData.length, address, outputPortNumber);
         try {
@@ -74,9 +76,8 @@ public class DatagramConnection {
         }
     }
 
-    static int receivePacketOfDataSize() {
+    private static int receivePacketOfDataSize() {
         packetOfDataSize = new DatagramPacket(bufferForDataSize, bufferForDataSize.length);
-        System.out.println("receiving");
         try {
             socketInput.receive(packetOfDataSize);
         } catch (IOException e) {
@@ -85,7 +86,9 @@ public class DatagramConnection {
         return ByteBuffer.wrap(packetOfDataSize.getData()).getInt();
     }
 
-    static String receivePacketOfData(int size) {
+    static String receivePacketOfData() {
+        int size = receivePacketOfDataSize();
+        System.out.println("size of packet: " + size);
         bufferForData = new byte[size];
         packetOfData = new DatagramPacket(bufferForData, bufferForData.length);
         try {
@@ -94,6 +97,10 @@ public class DatagramConnection {
             e.printStackTrace();
         }
         return new String(packetOfData.getData());
+    }
+
+    static void processCommand(String clientCommand) {
+        executor.executeMessageFromClient(clientCommand);
     }
 
 }

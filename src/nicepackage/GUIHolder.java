@@ -87,15 +87,10 @@ public class GUIHolder extends JPanel {
         jTextField = new JTextField(10);
         jTextField.addActionListener(actionEvent -> {
             toServer = jTextField.getText();
+            DatagramConnection.processCommand(toServer);
             jTextField.setText("");
         });
         add(jTextField);
-    }
-
-    static String getToServer() {
-        String temp = toServer;
-        toServer = "";
-        return temp;
     }
 
 }

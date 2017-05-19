@@ -39,7 +39,7 @@ public class Images extends GraphObject implements Serializable {
         this.spaceContainer.y = initialY;
     }
 
-    Runnable running = (Runnable & Serializable) () -> {
+    transient Runnable running = (Runnable & Serializable) () -> {
 
         while (true) {
             try {

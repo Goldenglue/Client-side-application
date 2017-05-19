@@ -45,7 +45,7 @@ public class Strings extends GraphObject implements Serializable {
     }
 
 
-    Runnable running = (Runnable & Serializable) () -> {
+    transient Runnable running = (Runnable & Serializable) () -> {
         while (true) {
 
             try {

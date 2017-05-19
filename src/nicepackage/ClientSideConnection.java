@@ -50,13 +50,13 @@ public class ClientSideConnection {
     };
 
     ClientSideConnection(Board board) {
-        clientServerExecutor = new DatagramExecutor(this, board);
+        //clientServerExecutor = new ClientServerExecutor(this, board);
         startThread();
 
     }
 
     private String getMessage() {
-        return GUIHolder.getToServer();
+        return null;
     }
 
     private void startThread() {
