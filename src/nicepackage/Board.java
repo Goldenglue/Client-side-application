@@ -22,9 +22,9 @@ import java.util.List;
 /**
  * @author IvanOP
  */
-class Board extends JPanel implements MouseListener, Serializable {
+public class Board extends JPanel implements MouseListener, Serializable {
 
-    Vector<GraphObject> graphObjectVector;
+    public Vector<GraphObject> graphObjectVector;
     private int fileDataSize = 0;
     private FileData fileData;
     private boolean areThreadsRunning;

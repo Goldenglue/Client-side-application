@@ -1,8 +1,9 @@
-package nicepackage;
+package DServer;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonParser;
+import com.google.gson.*;
+import nicepackage.Board;
+import nicepackage.Images;
+import nicepackage.Strings;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,27 +14,36 @@ import java.util.Map;
  * Created by IvanOP on 04.05.2017.
  */
 public class DatagramExecutor {
-    private Map<String, Call> stringMethodMap;
-    private String[] possibleCommands;
+    private Map<String, NoParameterMethod> stringNoParameterMethodMap;
+    private Map<String, ParameterMethod> stringParameterMethodMap;
     private Board board;
     private String message;
 
-    interface Call {
+    @FunctionalInterface
+    interface NoParameterMethod {
         void execute();
+    }
+
+    @FunctionalInterface
+    interface ParameterMethod {
+        void execute(String something);
     }
 
     /**
      * Store every method that executes given command
      */
-    private Call[] calls = new Call[]{
+    private NoParameterMethod[] noParameterMethods = new NoParameterMethod[]{
             this::sendSerializedObject,
-            this::receiveSerializedObject,
             this::clearVectorOnServer,
             this::clearVectorOnClient,
-            this::sizeOnServer,
             this::sizeOnClient,
             this::requestObject,
-            this::sendObject,
+            this::sendObject
+    };
+
+    private ParameterMethod[] parameterMethods = new ParameterMethod[]{
+            this::receiveSerializedObject,
+            this::sizeOnServer,
             this::getObject
     };
 
@@ -49,12 +59,10 @@ public class DatagramExecutor {
 
     /**
      * Sets command for every function that works with server/client
-     * -ct - connect to server
-     * -dc - disconnect from server
      * -sobjc - send Board.graphObjectVector to server in JSON format
      * -sobjs - cannot be executed directly from client, identifies that server sent object
-     * -clrc - clears storage of objects on server
-     * -clrs - cannot be executed directly from client,
+     * -clrvc - clears storage of objects on server
+     * -clrvs - cannot be executed directly from client,
      * identifies that server requested to clear storage of objects on client
      * -vecsc - requests size of objects storage on server
      * -vecss - cannot be executed directly from client,
@@ -62,28 +70,42 @@ public class DatagramExecutor {
      * -gobjc - request of object with given number ex: -gobjc3
      * -gobjs - cannot be executed directly from client,
      * identifies that server requested object with given number ex:-gobjs3
-     * -robj - cannot be executed directly from client, identifies that server sent requested object by command -gobjc
+     * -rcobj - cannot be executed directly from client, identifies that server sent requested object by command -gobjc
      *
      * @throws NoSuchMethodException
      */
     private void setStringMethodMap() throws NoSuchMethodException {
-        possibleCommands = new String[]{"-sobjc", "-sobjs", "-clrc", "-clrs", "-vecsc", "-vecss", "-gobjc"
-                , "-gobjs", "-robj"};
-        stringMethodMap = new HashMap<>();
-        for (int i = 0; i < possibleCommands.length; i++) {
-            stringMethodMap.put(possibleCommands[i], calls[i]);
+        String[] possibleNoParameterCommands = new String[]{"-sobjc", "-clrvc", "-vecsc", "-gobjc"
+                , "-gobjs"};
+        String[] possibleParameterCommands = new String[]{"-sobjs", "-vecss", "-rcobj"};
+        stringNoParameterMethodMap = new HashMap<>();
+        for (int i = 0; i < possibleNoParameterCommands.length; i++) {
+            stringNoParameterMethodMap.put(possibleNoParameterCommands[i], noParameterMethods[i]);
+        }
+
+        stringParameterMethodMap = new HashMap<>();
+        for (int i = 0; i < possibleParameterCommands.length; i++) {
+            stringParameterMethodMap.put(possibleParameterCommands[i], parameterMethods[i]);
         }
     }
 
 
+    void executeMessageFromClient(String[] message) {
+        this.message = message[0];
+        message[0] = message[0].replaceAll("\\d", "");
+        for (Map.Entry<String, ParameterMethod> temp : stringParameterMethodMap.entrySet()) {
+            if (temp.getKey().equals(message[0])) {
+                temp.getValue().execute(message[1]);
+            }
+        }
+    }
+
     void executeMessageFromClient(String message) {
         this.message = message;
         message = message.replaceAll("\\d", "");
-        if (stringMethodMap.containsKey(message)) {
-            for (Map.Entry<String, Call> temp : stringMethodMap.entrySet()) {
-                if (temp.getKey().equals(message)) {
-                    temp.getValue().execute();
-                }
+        for (Map.Entry<String, NoParameterMethod> temp : stringNoParameterMethodMap.entrySet()) {
+            if (temp.getKey().equals(message)) {
+                temp.getValue().execute();
             }
         }
     }
@@ -93,15 +115,15 @@ public class DatagramExecutor {
         String string = gson.toJson(board.graphObjectVector);
         DatagramConnection.sendPacketOfData(message);
         DatagramConnection.sendPacketOfData(string);
+        DatagramConnection.sendPacketOfData("end");
     }
 
     //for some reason that i haven't figured out yet every field of object that get created from json
     // is null in constructor. So i can't load image directly from there so setImage function must exist for now
-    private void receiveSerializedObject() {
+    private void receiveSerializedObject(String data) {
         Gson gson = new Gson();
-        String string = DatagramConnection.receivePacketOfData();
         JsonParser jsonParser = new JsonParser();
-        JsonArray jsonArray = jsonParser.parse(string).getAsJsonArray();
+        JsonArray jsonArray = jsonParser.parse(data).getAsJsonArray();
         for (int i = 0; i < jsonArray.size(); i++) {
             System.out.println(jsonArray);
             Images image = gson.fromJson(jsonArray.get(i), Images.class);
@@ -122,10 +144,9 @@ public class DatagramExecutor {
         System.out.println("Vector cleared");
     }
 
-    private void sizeOnServer() {
+    private void sizeOnServer(String data) {
         DatagramConnection.sendPacketOfData(message);
-        String size = DatagramConnection.receivePacketOfData();
-        System.out.println("size on server: " + size);
+        System.out.println("size on server: " + data);
     }
 
     private void sizeOnClient() {
@@ -146,18 +167,20 @@ public class DatagramExecutor {
 
     //for some reason that i haven't figured out yet every field of object that get created from json
     // is null in constructor. So i can't load image directly from there so setImage function must exist for now
-    private void getObject() {
+    private void getObject(String data) {
         Gson gson = new Gson();
-        String type = DatagramConnection.receivePacketOfData();
+        JsonParser parser =  new JsonParser();
+        JsonElement jsonElement = parser.parse(data);
+        String type = jsonElement.getAsJsonObject().get("Type").getAsString();
+        String objectItSelf = jsonElement.getAsJsonObject().get("Object").getAsString();
         System.out.println(type);
-        String object = DatagramConnection.receivePacketOfData();
-        System.out.println(object);
+        System.out.println(data);
         if (type.equals("Images")) {
-            Images images = gson.fromJson(object, Images.class);
+            Images images = gson.fromJson(objectItSelf, Images.class);
             images.setImage();
             board.graphObjectVector.add(images);
         } else if (type.equals("Strings")) {
-            Strings strings = gson.fromJson(object, Strings.class);
+            Strings strings = gson.fromJson(objectItSelf, Strings.class);
             board.graphObjectVector.add(strings);
         }
     }

@@ -1,8 +1,11 @@
-package nicepackage;
+package SServer;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonParser;
+import nicepackage.Board;
+import nicepackage.Images;
+import nicepackage.Strings;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -20,7 +23,6 @@ import java.util.Map;
  */
 public class ClientServerExecutor {
     private Map<String, Call> stringMethodMap;
-    private String[] possibleCommands;
     private ClientSideConnection connection;
     private Board board;
     private String message;
@@ -77,7 +79,7 @@ public class ClientServerExecutor {
      * @throws NoSuchMethodException
      */
     private void setStringMethodMap() throws NoSuchMethodException {
-        possibleCommands = new String[]{"-ct", "-dc", "-sobjc", "-sobjs", "-clrc", "-clrs", "-vecsc", "-vecss", "-gobjc"
+        String[] possibleCommands = new String[]{"-ct", "-dc", "-sobjc", "-sobjs", "-clrc", "-clrs", "-vecsc", "-vecss", "-gobjc"
                 , "-gobjs", "-robj"};
         stringMethodMap = new HashMap<>();
         for (int i = 0; i < possibleCommands.length; i++) {

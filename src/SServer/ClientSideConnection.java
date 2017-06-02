@@ -1,4 +1,6 @@
-package nicepackage;
+package SServer;
+
+import nicepackage.Board;
 
 import java.io.BufferedReader;
 import java.io.PrintWriter;
@@ -19,7 +21,7 @@ public class ClientSideConnection {
     boolean isConnected = false;
     private boolean isDisconnected = false;
     private Thread clientSideConnectionThread;
-    private DatagramExecutor clientServerExecutor;
+    private ClientServerExecutor clientServerExecutor;
 
 
     private Runnable runClientSideConnection = () -> {
@@ -49,8 +51,8 @@ public class ClientSideConnection {
         }
     };
 
-    ClientSideConnection(Board board) {
-        //clientServerExecutor = new ClientServerExecutor(this, board);
+    public ClientSideConnection(Board board) {
+        clientServerExecutor = new ClientServerExecutor(this, board);
         startThread();
 
     }

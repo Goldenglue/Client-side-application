@@ -1,5 +1,7 @@
 package nicepackage;
 
+import DServer.DatagramConnection;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
@@ -12,7 +14,6 @@ public class GUIHolder extends JPanel {
     private JButton jButton;
     private JTextField jTextField;
     private Board board;
-    private static String toServer = "";
 
     public Dimension getPreferredSize() {
         return new Dimension(200, 500);
@@ -23,6 +24,7 @@ public class GUIHolder extends JPanel {
         this.board = board;
         createAndShowGUI();
     }
+
 
     private void createAndShowGUI() {
         jButton = new JButton("Save as text");
@@ -86,11 +88,9 @@ public class GUIHolder extends JPanel {
         add(jButton);
         jTextField = new JTextField(10);
         jTextField.addActionListener(actionEvent -> {
-            toServer = jTextField.getText();
-            DatagramConnection.processCommand(toServer);
+            DatagramConnection.processCommand(jTextField.getText());
             jTextField.setText("");
         });
         add(jTextField);
     }
-
 }
