@@ -36,6 +36,7 @@ public class DatagramExecutor {
             this::sendSerializedObject,
             this::clearVectorOnServer,
             this::clearVectorOnClient,
+            this::requestSizeOnServer,
             this::sizeOnClient,
             this::requestObject,
             this::sendObject
@@ -75,9 +76,9 @@ public class DatagramExecutor {
      * @throws NoSuchMethodException
      */
     private void setStringMethodMap() throws NoSuchMethodException {
-        String[] possibleNoParameterCommands = new String[]{"-sobjc", "-clrvc", "-vecsc", "-gobjc"
+        String[] possibleNoParameterCommands = new String[]{"-sobjc", "-clrvc","-clrvs", "-rvsfc","-vecsc", "-gobjc"
                 , "-gobjs"};
-        String[] possibleParameterCommands = new String[]{"-sobjs", "-vecss", "-rcobj"};
+        String[] possibleParameterCommands = new String[]{"-sobjs", "-vecsc", "-rcobj"};
         stringNoParameterMethodMap = new HashMap<>();
         for (int i = 0; i < possibleNoParameterCommands.length; i++) {
             stringNoParameterMethodMap.put(possibleNoParameterCommands[i], noParameterMethods[i]);
@@ -112,10 +113,8 @@ public class DatagramExecutor {
 
     private void sendSerializedObject() {
         Gson gson = new Gson();
-        String string = gson.toJson(board.graphObjectVector);
-        DatagramConnection.sendPacketOfData(message);
-        DatagramConnection.sendPacketOfData(string);
-        DatagramConnection.sendPacketOfData("end");
+        String serializedVector = gson.toJson(board.graphObjectVector);
+        DatagramConnection.sendPacketOfData(message, serializedVector);
     }
 
     //for some reason that i haven't figured out yet every field of object that get created from json
@@ -123,6 +122,8 @@ public class DatagramExecutor {
     private void receiveSerializedObject(String data) {
         Gson gson = new Gson();
         JsonParser jsonParser = new JsonParser();
+        data = data.split("\0")[0];
+        System.out.println(data + "my json");
         JsonArray jsonArray = jsonParser.parse(data).getAsJsonArray();
         for (int i = 0; i < jsonArray.size(); i++) {
             System.out.println(jsonArray);
@@ -144,13 +145,15 @@ public class DatagramExecutor {
         System.out.println("Vector cleared");
     }
 
+    private void requestSizeOnServer() {
+        DatagramConnection.sendPacketOfData("-vecsc");
+    }
     private void sizeOnServer(String data) {
-        DatagramConnection.sendPacketOfData(message);
         System.out.println("size on server: " + data);
     }
 
     private void sizeOnClient() {
-        DatagramConnection.sendPacketOfData(String.valueOf(board.graphObjectVector.size()));
+        DatagramConnection.sendPacketOfData(message,String.valueOf(board.graphObjectVector.size()));
     }
 
     private void requestObject() {
@@ -161,8 +164,7 @@ public class DatagramExecutor {
         message = message.replaceAll("[^0-9]", "");
         Gson gson = new Gson();
         String object = gson.toJson(board.graphObjectVector.get(Integer.valueOf(message)));
-        DatagramConnection.sendPacketOfData("-robj");
-        DatagramConnection.sendPacketOfData(object);
+        DatagramConnection.sendPacketOfData(message,object);
     }
 
     //for some reason that i haven't figured out yet every field of object that get created from json

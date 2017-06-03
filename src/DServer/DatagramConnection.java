@@ -54,9 +54,16 @@ public class DatagramConnection {
         runConnectionThread.start();
     }
 
-    static void sendPacketOfData(String data) {
+    static void sendPacketOfData(String command, String data) {
+        bufferForData =  command.getBytes();
+        packetOfData = new DatagramPacket(bufferForData,bufferForData.length,address,outputPortNumber);
+        try {
+            socketOutput.send(packetOfData);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         bufferForData = data.getBytes();
-        System.out.println("sending this many bytes: " + bufferForData.length);
+        //System.out.println("sending this many bytes: " + bufferForData.length);
         if (bufferForData.length > 256) {
             int offset = 0;
             while (offset < bufferForData.length) {
@@ -86,19 +93,30 @@ public class DatagramConnection {
                 e.printStackTrace();
             }
         }
-        try {
-            Thread.sleep(100);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        /*String endString = "end";
-        bufferForData = endString.getBytes();
-        packetOfData = new DatagramPacket(bufferForData, bufferForData.length, address, outputPortNumber);
+        bufferForData = "end".getBytes();
+        packetOfData = new DatagramPacket(bufferForData,bufferForData.length,address,outputPortNumber);
         try {
             socketOutput.send(packetOfData);
         } catch (IOException e) {
             e.printStackTrace();
-        }*/
+        }
+    }
+
+    static void sendPacketOfData(String command) {
+        bufferForData =  command.getBytes();
+        packetOfData = new DatagramPacket(bufferForData,bufferForData.length,address,outputPortNumber);
+        try {
+            socketOutput.send(packetOfData);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        bufferForData = "end".getBytes();
+        packetOfData = new DatagramPacket(bufferForData,bufferForData.length,address,outputPortNumber);
+        try {
+            socketOutput.send(packetOfData);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private static String[] receivePacketOfData() {

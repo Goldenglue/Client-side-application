@@ -13,7 +13,7 @@ import java.nio.file.Path;
 /**
  * @author IvanOP
  */
-abstract class GraphObject implements Serializable {
+public abstract class GraphObject implements Serializable {
     int x;
     int y;
     int objWidth;
