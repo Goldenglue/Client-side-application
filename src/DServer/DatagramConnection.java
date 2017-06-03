@@ -8,6 +8,7 @@ import java.net.*;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Objects;
 
 /**
  * Created by IvanOP on 19.05.2017.
@@ -109,10 +110,15 @@ public class DatagramConnection {
         try {
             socketInput.receive(packetOfData);
             command = new String(packetOfData.getData());
+            command = command.substring(0,6);
+            System.out.println("command is " + command);
             while (true) {
+                packetOfData = new DatagramPacket(bufferForData, bufferForData.length);
                 socketInput.receive(packetOfData);
                 String receivedData = new String(packetOfData.getData());
-                if (receivedData.equals("end")) {
+                System.out.println(receivedData);
+                if (Objects.equals(receivedData.substring(0,3), "end")) {
+                    System.out.println("ending");
                     break;
                 } else {
                     builder.append(receivedData);

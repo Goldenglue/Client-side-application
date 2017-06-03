@@ -7,20 +7,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20dfa6ea-c1c1-4411-8cee-7c2f9c9b5d6f" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/popitkaDVA/nicepackage/ClientSideConnection.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/popitkaDVA/nicepackage/GUIHolder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/popitkaDVA/nicepackage/TwitchEmotes.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/popitkaDVA/nicepackage/Images.class" afterPath="$PROJECT_DIR$/out/production/popitkaDVA/nicepackage/Images.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/popitkaDVA/nicepackage/Strings.class" afterPath="$PROJECT_DIR$/out/production/popitkaDVA/nicepackage/Strings.class" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/popitkaDVA/META-INF/MANIFEST.MF" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/popitkaDVA/nicepackage/ClientServerExecutor$Call.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/popitkaDVA/nicepackage/ClientServerExecutor.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/popitkaDVA/nicepackage/Board.class" afterPath="$PROJECT_DIR$/out/production/popitkaDVA/nicepackage/Board.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/nicepackage/Board.java" afterPath="$PROJECT_DIR$/src/nicepackage/Board.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/nicepackage/GUIHolder.java" afterPath="$PROJECT_DIR$/src/nicepackage/GUIHolder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/nicepackage/TwitchEmotes.java" afterPath="$PROJECT_DIR$/src/nicepackage/TwitchEmotes.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/nicepackage/ClientServerExecutor.java" afterPath="$PROJECT_DIR$/src/SServer/ClientServerExecutor.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/nicepackage/ClientSideConnection.java" afterPath="$PROJECT_DIR$/src/SServer/ClientSideConnection.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/nicepackage/DatagramConnection.java" afterPath="$PROJECT_DIR$/src/DServer/DatagramConnection.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/nicepackage/DatagramExecutor.java" afterPath="$PROJECT_DIR$/src/DServer/DatagramExecutor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DServer/DatagramConnection.java" afterPath="$PROJECT_DIR$/src/DServer/DatagramConnection.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -83,12 +75,12 @@
       <file leaf-file-name="DatagramConnection.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/DServer/DatagramConnection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="88" column="30" lean-forward="true" selection-start-line="88" selection-start-column="30" selection-end-line="88" selection-end-column="30" />
+            <state relative-caret-position="299">
+              <caret line="117" column="73" lean-forward="true" selection-start-line="117" selection-start-column="73" selection-end-line="117" selection-end-column="73" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#4727#4728#0" expanded="true" />
-                <element signature="e#4791#4792#0" expanded="true" />
+                <element signature="e#5068#5069#0" expanded="true" />
+                <element signature="e#5132#5133#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -891,7 +883,7 @@
       <workItem from="1495777466981" duration="4567000" />
       <workItem from="1495807739220" duration="599000" />
       <workItem from="1496050315127" duration="33000" />
-      <workItem from="1496427470360" duration="10583000" />
+      <workItem from="1496427470360" duration="14160000" />
     </task>
     <task id="LOCAL-00001" summary="Able to send messages but unable to receive them">
       <created>1495201430597</created>
@@ -907,11 +899,18 @@
       <option name="project" value="LOCAL" />
       <updated>1495212334726</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="datagram sending is working">
+      <created>1496447325563</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1496447325563</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28456000" />
+    <option name="totallyTimeSpent" value="32033000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -935,7 +934,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28844115" sideWeight="0.5125" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28762543" sideWeight="0.4875" order="7" side_tool="false" content_ui="tabs" x="-50" y="144" width="1870" height="271" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -998,7 +997,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Able to send messages but unable to receive them" />
     <MESSAGE value="Able to send messages in both ways" />
-    <option name="LAST_COMMIT_MESSAGE" value="Able to send messages in both ways" />
+    <MESSAGE value="datagram sending is working" />
+    <option name="LAST_COMMIT_MESSAGE" value="datagram sending is working" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1503,12 +1503,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DServer/DatagramConnection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="88" column="30" lean-forward="true" selection-start-line="88" selection-start-column="30" selection-end-line="88" selection-end-column="30" />
+        <state relative-caret-position="299">
+          <caret line="117" column="73" lean-forward="true" selection-start-line="117" selection-start-column="73" selection-end-line="117" selection-end-column="73" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4727#4728#0" expanded="true" />
-            <element signature="e#4791#4792#0" expanded="true" />
+            <element signature="e#5068#5069#0" expanded="true" />
+            <element signature="e#5132#5133#0" expanded="true" />
           </folding>
         </state>
       </provider>
