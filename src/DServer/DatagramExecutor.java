@@ -76,7 +76,7 @@ public class DatagramExecutor {
      * @throws NoSuchMethodException
      */
     private void setStringMethodMap() throws NoSuchMethodException {
-        String[] possibleNoParameterCommands = new String[]{"-sobjc", "-clrvc","-clrvs", "-rvsfc","-vecsc", "-gobjc"
+        String[] possibleNoParameterCommands = new String[]{"-sobjc", "-clrvc","-clrvs", "-rvsfc","-vecss", "-gobjc"
                 , "-gobjs"};
         String[] possibleParameterCommands = new String[]{"-sobjs", "-vecsc", "-rcobj"};
         stringNoParameterMethodMap = new HashMap<>();
@@ -97,6 +97,11 @@ public class DatagramExecutor {
         for (Map.Entry<String, ParameterMethod> temp : stringParameterMethodMap.entrySet()) {
             if (temp.getKey().equals(message[0])) {
                 temp.getValue().execute(message[1]);
+            }
+        }
+        for (Map.Entry<String, NoParameterMethod> temp : stringNoParameterMethodMap.entrySet()) {
+            if (temp.getKey().equals(message[0])) {
+                temp.getValue().execute();
             }
         }
     }

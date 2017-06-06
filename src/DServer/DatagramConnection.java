@@ -29,7 +29,7 @@ public class DatagramConnection {
     private Runnable runConnection = () -> {
         while (isConnected) {
             String[] receivedData = receivePacketOfData();
-            System.out.println(receivedData[1]);
+            System.out.println("full data " + receivedData[1]);
             executor.executeMessageFromClient(receivedData);
             try {
                 Thread.sleep(10);
@@ -56,6 +56,7 @@ public class DatagramConnection {
 
     static void sendPacketOfData(String command, String data) {
         bufferForData =  command.getBytes();
+        System.out.println("sending command " + new String(bufferForData));
         packetOfData = new DatagramPacket(bufferForData,bufferForData.length,address,outputPortNumber);
         try {
             socketOutput.send(packetOfData);
@@ -63,7 +64,6 @@ public class DatagramConnection {
             e.printStackTrace();
         }
         bufferForData = data.getBytes();
-        //System.out.println("sending this many bytes: " + bufferForData.length);
         if (bufferForData.length > 256) {
             int offset = 0;
             while (offset < bufferForData.length) {
@@ -94,6 +94,7 @@ public class DatagramConnection {
             }
         }
         bufferForData = "end".getBytes();
+        System.out.println("sending command " + new String(bufferForData));
         packetOfData = new DatagramPacket(bufferForData,bufferForData.length,address,outputPortNumber);
         try {
             socketOutput.send(packetOfData);
@@ -104,6 +105,7 @@ public class DatagramConnection {
 
     static void sendPacketOfData(String command) {
         bufferForData =  command.getBytes();
+        System.out.println("sending " + command);
         packetOfData = new DatagramPacket(bufferForData,bufferForData.length,address,outputPortNumber);
         try {
             socketOutput.send(packetOfData);
@@ -120,6 +122,7 @@ public class DatagramConnection {
     }
 
     private static String[] receivePacketOfData() {
+        bufferForData = new byte[256];
         packetOfData = new DatagramPacket(bufferForData, bufferForData.length);
         String[] everythingThatIsNeeded = new String[2];
         String whateverCame = null;
@@ -129,12 +132,13 @@ public class DatagramConnection {
             socketInput.receive(packetOfData);
             command = new String(packetOfData.getData());
             command = command.substring(0,6);
-            System.out.println("command is " + command);
+            System.out.println("received command is " + command);
             while (true) {
+                bufferForData = new byte[256];
                 packetOfData = new DatagramPacket(bufferForData, bufferForData.length);
                 socketInput.receive(packetOfData);
                 String receivedData = new String(packetOfData.getData());
-                System.out.println(receivedData);
+                System.out.println("received data is " + receivedData);
                 if (Objects.equals(receivedData.substring(0,3), "end")) {
                     System.out.println("ending");
                     break;
