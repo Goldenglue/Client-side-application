@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="popitkaDVA:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/popitkaDVA_jar</output-path>
-    <root id="archive" name="popitkaDVA.jar">
-      <element id="module-output" name="popitkaDVA" />
-    </root>
-  </artifact>
-</component>

@@ -16,18 +16,18 @@ import static java.lang.StrictMath.sin;
  * @author IvanOP
  */
 public class Strings extends GraphObject implements Serializable {
-    String hah;
+    String name;
     int radius;
     double a = 0;
 
 
     public void paintComponent(Graphics g) {
         FontMetrics metrics = g.getFontMetrics();
-        this.objWidth = metrics.stringWidth(hah);
+        this.objWidth = metrics.stringWidth(name);
         this.objHeight = metrics.getHeight();
         this.spaceContainer.height = objHeight;
         this.spaceContainer.width = objWidth;
-        g.drawString(hah, x - objWidth / 2, y + 28);
+        g.drawString(name, x - objWidth / 2, y + 28);
     }
 
     private void circularMotion() {
@@ -85,7 +85,7 @@ public class Strings extends GraphObject implements Serializable {
     public Strings(int x, int y, String name) {
 
         super(x, y, x, y);
-        this.hah = name;
+        this.name = name;
         this.radius = 10 + (int) (Math.random() * 50);
         this.threadSuspended = false;
         this.isRunning = true;
@@ -113,7 +113,7 @@ public class Strings extends GraphObject implements Serializable {
         File filewrite = new File(path.toString());
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filewrite, true))) {
             writer.write(this.getClass().getName() + "\n");
-            writer.write(this.hah + "\n");
+            writer.write(this.name + "\n");
             writer.write(this.x + "\n");
             writer.write(this.y + "\n");
             writer.write(this.radius + "\n");
@@ -127,7 +127,7 @@ public class Strings extends GraphObject implements Serializable {
         File fileread = new File(path.toString());
         try (BufferedReader reader = new BufferedReader(new FileReader(fileread))) {
             reader.readLine();
-            this.hah = reader.readLine();
+            this.name = reader.readLine();
             this.x = Integer.valueOf(reader.readLine());
             this.y = Integer.valueOf(reader.readLine());
             this.radius = Integer.valueOf(reader.readLine());
@@ -141,7 +141,7 @@ public class Strings extends GraphObject implements Serializable {
         File filewrite = new File(path.toString());
         try (BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(filewrite, true)))) {
             writer.write(this.getClass().getName() + "\n");
-            writer.write(this.hah + "\n");
+            writer.write(this.name + "\n");
             writer.write(this.x + "\n");
             writer.write(this.y + "\n");
             writer.write(this.radius + "\n");
@@ -155,7 +155,7 @@ public class Strings extends GraphObject implements Serializable {
         File fileread = new File(path.toString());
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(fileread)))) {
             reader.readLine();
-            this.hah = reader.readLine();
+            this.name = reader.readLine();
             this.x = Integer.valueOf(reader.readLine());
             this.y = Integer.valueOf(reader.readLine());
             this.radius = Integer.valueOf(reader.readLine());

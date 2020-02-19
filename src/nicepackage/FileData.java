@@ -16,17 +16,17 @@ import java.util.stream.Stream;
  * Created by IvanOP on 27.03.2017.
  */
 public class FileData {
-    Path dir;
-    Stream<Path> heh = null;
+    Path directory;
+    Stream<Path> streamOfPaths = null;
     private static List<String> pathsToImages;
     private static List<String> namesOfImages = new ArrayList<>();
     File[] files;
 
     //TODO filter automatically, but should learn about Stream more
     FileData() throws IOException {
-        dir = Paths.get("twitch chat");
-        heh = Files.list(dir);
-        pathsToImages = heh.map(Path::toString).collect(Collectors.toList());
+        directory = Paths.get("twitch chat");
+        streamOfPaths = Files.list(directory);
+        pathsToImages = streamOfPaths.map(Path::toString).collect(Collectors.toList());
 
 
         this.files = new File("twitch chat").listFiles();
